@@ -8,6 +8,7 @@ import me.friendly.api.event.basic.BasicEventManager;
 import me.friendly.exeter.command.CommandManager;
 import me.friendly.exeter.config.ConfigManager;
 import me.friendly.exeter.friend.FriendManager;
+import me.friendly.exeter.gui.screens.accountmanager.AccountManager;
 import me.friendly.exeter.keybind.KeybindManager;
 import me.friendly.exeter.logging.Logger;
 import me.friendly.exeter.module.ModuleManager;
@@ -44,7 +45,7 @@ public final class Exeter {
     private CommandManager commandManager;
     private FriendManager friendManager;
     private ConfigManager configManager;
-//    private AccountManager accountManager;
+    private AccountManager accountManager;
     private PluginManager pluginManager;
     private File directory;
 
@@ -124,9 +125,9 @@ public final class Exeter {
         return this.configManager;
     }
 
-//    public AccountManager getAccountManager() {
-//        return this.accountManager;
-//    }
+    public AccountManager getAccountManager() {
+        return this.accountManager;
+    }
 
     public PluginManager getPluginManager() {
         return this.pluginManager;
