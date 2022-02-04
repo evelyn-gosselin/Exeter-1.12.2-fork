@@ -31,7 +31,6 @@ public final class ModuleManager
         this.registry = new ArrayList();
 
         register(new Hud());
-        register(new AntiAim());
         register(new Fullbright());
         register(new ClickGui());
         register(new TabGui());

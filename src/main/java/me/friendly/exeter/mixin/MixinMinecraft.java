@@ -7,25 +7,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * This class is not present in the original
+ * Exeter 1.8 client. It was added as part
+ * of the 1.12.2 forge port
+ *
+ * @author Gopro336
+ */
 @Mixin(Minecraft.class)
-public abstract class MixinMinecraft// implements IMinecraft
+public abstract class MixinMinecraft
 {
-//    @Override
-//    @Accessor(value = "rightClickDelayTimer")
-//    public abstract int getRightClickDelay();
-//
-//    @Override
-//    @Accessor(value = "rightClickDelayTimer")
-//    public abstract void setRightClickDelay(int delay);
-//
-//    @Override
-//    @Accessor(value = "metadataSerializer")
-//    public abstract MetadataSerializer getMetadataSerializer();
-//
-//    @Override
-//    @Accessor(value = "timer")
-//    public abstract Timer getTimer();
-
     @Inject(
             method = "init",
             at = @At(
@@ -36,7 +27,5 @@ public abstract class MixinMinecraft// implements IMinecraft
     private void initHook2(CallbackInfo ci)
     {
         new Exeter();
-//        Exeter.getInstance().init();
-//        Earthhack.postInit();
     }
 }

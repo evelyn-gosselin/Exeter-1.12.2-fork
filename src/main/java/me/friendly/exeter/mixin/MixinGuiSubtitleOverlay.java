@@ -11,16 +11,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * This class is not present in the original
+ * Exeter 1.8 client. It was added as part
+ * of the 1.12.2 forge port
+ *
+ * @author Gopro336
+ */
 @Mixin(GuiSubtitleOverlay.class)
 public abstract class MixinGuiSubtitleOverlay {
-//    @Inject(
-//        method = "renderSubtitles",
-//        at = @At(value = "HEAD"))
-//    private void renderSubtitlesHook(CallbackInfo info) {
-//        Exeter.getInstance().getEventManager()
-//                .dispatch(new Render2DEvent());
-//        GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
-//    }
 
     @Inject(
         method = "renderSubtitles",

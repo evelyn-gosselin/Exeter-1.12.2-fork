@@ -1,7 +1,5 @@
 package me.friendly.exeter.module.impl.active.render;
 
-import io.netty.util.internal.MathUtil;
-import me.friendly.api.minecraft.render.BetterColor;
 import me.friendly.exeter.module.Module;
 import me.friendly.exeter.properties.NumberProperty;
 import me.friendly.exeter.properties.Property;
@@ -9,6 +7,13 @@ import net.minecraft.util.math.MathHelper;
 
 import java.awt.*;
 
+/**
+ * This class is not present in the original
+ * Exeter 1.8 client. It was added as part
+ * of the 1.12.2 forge port
+ *
+ * @author Gopro336
+ */
 public final class Colors extends Module {
 
     private static final NumberProperty<Float> hue = new NumberProperty<>(0f, 0f, 360f, "Hue", "RGB", "HSL");
@@ -22,11 +27,6 @@ public final class Colors extends Module {
         super("Colors", new String[]{"Colors", "Color"});
         offerProperties(hue, saturation, lightness, hudRainbow, rainbowSpeed, rainbowHue);
     }
-
-//    public static int getClientColor(){
-//        Color color = new Color(Color.HSBtoRGB(hue.getValue(), saturation.getValue() / 100.0f, lightness.getValue() / 100.0f));
-//        return new Color(color.getRed(), color.getGreen(), color.getBlue(), 77).getRGB();
-//    }
 
     public static int getClientColorCustomAlpha(int alpha){
         Color color = setAlpha(new Color(Color.HSBtoRGB(hue.getValue(), saturation.getValue() / 100f, lightness.getValue() / 100f)), alpha);
@@ -44,7 +44,6 @@ public final class Colors extends Module {
         return Color.getHSBColor(hue, s, brightness);
     }
 
-//    public int getCurrentColor() {
     public static int getClientColor(){
         return Color.getHSBColor(hue.getValue(), saturation.getValue() / 100f, lightness.getValue() / 100f).getRGB();
     }

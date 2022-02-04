@@ -44,7 +44,7 @@ implements Labeled {
         this.drag(mouseX, mouseY);
         float totalItemHeight = this.open ? this.getTotalItemHeight() - 2.0f : 0.0f;
 //        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, -7829368, -6710887);
-        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colors.getClientColor(), Colors.getClientColor());//0x77FB4242, 0x77FB4242);
+        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colors.getClientColorCustomAlpha(77), Colors.getClientColorCustomAlpha(77));//0x77FB4242, 0x77FB4242);
         if (this.open) {
             RenderMethods.drawRect(this.x, (float)this.y + 12.5f, this.x + this.width, this.open ? (float)(this.y + this.height) + totalItemHeight : (float)(this.y + this.height - 1), 0x77000000);//1996488704
         }
@@ -64,7 +64,7 @@ implements Labeled {
         RenderMethods.glColor(new Color(255, 255, 255, 255));
         minecraft.getTextureManager().bindTexture(new ResourceLocation("textures/exeter/arrow.png"));
         GlStateManager.translate(getX() + getWidth() - 7, (getY() + 6) - 0.3F, 0.0F);
-        GlStateManager.rotate(f$a(angle), 0.0F, 0.0F, 1.0F);
+        GlStateManager.rotate(calculateRotation(angle), 0.0F, 0.0F, 1.0F);
         RenderMethods.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
@@ -160,14 +160,10 @@ implements Labeled {
 
     private boolean isHovering(int mouseX, int mouseY) {
         return mouseX >= this.getX() && mouseX <= this.getX() + this.getWidth() && mouseY >= this.getY() && mouseY <= this.getY() + this.getHeight() - (this.open ? 2 : 0);
-
-        //future verion
-        //in future its offset because the gui top bar is different
-        //return var1 >= this.f$B() && var1 <= this.f$B() + this.f$a() - 1 && (float)var2 >= (float)this.f$e() - 1.5F && var2 <= this.f$e() + this.f$E() - 6;
     }
 
     //added this method in, just to fix shit. It is from uz1 class in future
-    public static float f$a(float var0) {
+    public static float calculateRotation(float var0) {
         if ((var0 %= 360.0F) >= 180.0F) {
             var0 -= 360.0F;
         }

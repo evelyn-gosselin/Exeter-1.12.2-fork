@@ -28,7 +28,7 @@ extends Item {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         dragSetting(mouseX, mouseY);
 //        RenderMethods.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? 2012955202 : -1711586750);
-        RenderMethods.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? Colors.getClientColor() : Colors.getClientColorCustomAlpha(55));
+        RenderMethods.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? Colors.getClientColorCustomAlpha(77) : Colors.getClientColorCustomAlpha(55));
 //        RenderMethods.drawRect(x, y, x + getValueWidth(), y + height, !isHovering(mouseX, mouseY) ? 0x775CE843 : 0x66A317BD);//2002577475 : -1721964477);
 //        FontUtil.drawString(String.format("%s\u00a77 %s", this.getLabel(), this.numberProperty.getValue()), this.x + 2.3f, this.y - 1.0f, -1);
         FontUtil.drawString(String.format("%s\u00a77 %s", this.getLabel(), this.numberProperty.getValue()), this.x + 2.0f, this.y + 4.0f, -1);

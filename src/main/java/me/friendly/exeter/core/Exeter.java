@@ -62,8 +62,11 @@ public final class Exeter {
 
         Logger.getLogger().print("Initializing...");
         instance = this;
+
+        // In exeter 1.8, the config file is named clarinet for whatever reason. I changed that to be exeter
         this.directory = new File(System.getProperty("user.home"), "exeter");
 //        this.directory = new File(System.getProperty("user.home"), "clarinet");
+
         if (!this.directory.exists()) {
             Logger.getLogger().print(String.format("%s client directory.", this.directory.mkdir() ? "Created" : "Failed to create"));
         }
@@ -125,6 +128,7 @@ public final class Exeter {
         return this.configManager;
     }
 
+    // AccountManager is not working
     public AccountManager getAccountManager() {
         return this.accountManager;
     }

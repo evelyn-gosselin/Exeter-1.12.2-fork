@@ -20,12 +20,12 @@ extends Button {
     private final Module module;
     private java.util.List<Item> items = new ArrayList<Item>();
     private boolean subOpen;
-    private int ĆÆiĆÆĆ;
+    private int progress;
 
     public ModuleButton(Module module) {
         super(module.getLabel());
         this.module = module;
-        this.ĆÆiĆÆĆ = 0;
+        this.progress = 0;
         if (!module.getProperties().isEmpty()) {
             for (Property<?> property : module.getProperties()) {
                 if (property.getValue() instanceof Boolean) {
@@ -42,7 +42,7 @@ extends Button {
         }
     }
 
-    public static float f$a(float var0) {
+    public static float calculateRotation(float var0) {
         if ((var0 %= 360.0F) >= 180.0F) {
             var0 -= 360.0F;
         }
@@ -64,21 +64,17 @@ extends Button {
 
             GlStateManager.pushMatrix();
             GlStateManager.enableBlend();
-            //qr.f$E(this.f$d);
 //            RenderMethods.glColor(new Color(0.0F, 0.0F, 100.0F, 1.0F));
             Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/exeter/gear.png"));
-//            GlStateManager.translate(this.f$a() + (float)this.f$a() - 6.7F, this.f$E() + 7.7F, 0.0F);
-//            GlStateManager.translate(getX() + (float)getY() - 6.7F, getY() + 7.7F, 0.0F);
-            GlStateManager.translate((float)(getX() + getWidth() - 6.7F), (float)(getY() + 7.7F) - 0.3F, 0.0F);
-            GlStateManager.rotate(f$a((float)this.ĆÆiĆÆĆ), 0.0F, 0.0F, 1.0F);
+            GlStateManager.translate(getX() + getWidth() - 6.7F, getY() + 7.7F - 0.3F, 0.0F);
+            GlStateManager.rotate(calculateRotation((float)this.progress), 0.0F, 0.0F, 1.0F);
             RenderMethods.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
             GlStateManager.disableBlend();
             GlStateManager.popMatrix();
 
             if (this.subOpen) {
                 float height = 1.0f;
-                ++ĆÆiĆÆĆ;
-                //ĆÆiĆÆĆ++;
+                ++progress;
                 for (Item item : items) {
                     item.setLocation(this.x + 1.0f, this.y + (height += 15.0f));
                     item.setHeight(15);
@@ -88,27 +84,6 @@ extends Button {
             }
         }
     }
-
-//            GlStateManager.pushMatrix();
-//            GlStateManager.enableBlend();
-//            //qr.f$E(this.f$d);
-//            RenderMethods.glColor(new Color(0.0F, 0.0F, 100.0F, 1.0F));
-//            minecraft.getTextureManager().bindTexture(new ResourceLocation("textures/exeter/gear.png"));
-//            GlStateManager.translate(this.f$a() + (float)this.f$a() - 6.7F, this.f$E() + 7.7F, 0.0F);
-//            GlStateManager.rotate(f$a((float)this.f$j), 0.0F, 0.0F, 1.0F);
-//            RenderMethods.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
-//            GlStateManager.disableBlend();
-//            GlStateManager.popMatrix();
-
-//            GlStateManager.func_179094_E();
-//            GlStateManager.func_179147_l();
-//            qr.f$E(this.f$d);
-//            this.f$b.func_110434_K().func_110577_a(new ResourceLocation("textures/future/gear.png"));
-//            GlStateManager.func_179109_b(this.f$a() + (float)this.f$a() - 6.7F, this.f$E() + 7.7F, 0.0F);
-//            GlStateManager.func_179114_b(uz1.f$a((float)this.f$j), 0.0F, 0.0F, 1.0F);
-//            qr.f$E(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
-//            GlStateManager.func_179084_k();
-//            GlStateManager.func_179121_F();
 
     @Override
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
