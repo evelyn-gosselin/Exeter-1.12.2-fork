@@ -58,13 +58,7 @@ extends Module {
                     FontUtil.drawString(String.format("%s \u00a77b%s", "Exeter", 23), 2.0f, 2.0f, (Boolean) transparent.getValue() != false ? -1711276033 : -1);
                     GlStateManager.disableBlend();
                     GlStateManager.popMatrix();
-
-                    if (transparent.getValue()){
-                        RenderMethods.drawGradientRect(100, 100, 100 + 100, 100 + 100, Colors.getClientColorCustomAlpha(77), Colors.getClientColorCustomAlpha(77));
-                    } else {
-                        RenderMethods.drawGradientRect(100, 100, 100 + 100, 100 + 100, Colors.getClientColor(), Colors.getClientColor());
-                    }
-
+                    
                 }
                 ScaledResolution scaledResolution = event.getScaledResolution();
                 int positionY = -7;
